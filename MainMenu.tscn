@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Blank Space Game Background 2.png" type="Texture" id=2]
+[ext_resource path="res://Space_Theme.tres" type="Theme" id=3]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 1.52588e-05
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 5, 3 )
+texture = ExtResource( 2 )
+centered = false
+region_rect = Rect2( 0, 0, 0, 190 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 160, 0 )
+amount = 35
+lifetime = 7.0
+emission_shape = 2
+emission_rect_extents = Vector2( 175, 1 )
+direction = Vector2( 0, 1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 45.0
+initial_velocity_random = 0.6
+angular_velocity = 10.0
+scale_amount = 2.0
+scale_amount_random = 0.16
+
+[node name="Title" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -71.0
+margin_right = 160.0
+margin_bottom = 70.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Outer Space" type="Label" parent="Title"]
+margin_right = 320.0
+margin_bottom = 93.0
+text = "UNTITILED 
+SPACE GAME"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -31.5
+margin_top = -74.0
+margin_right = 31.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+margin_right = 63.0
+margin_bottom = 22.0
+focus_neighbour_top = NodePath("../Quit")
+text = "Start"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+margin_top = 26.0
+margin_right = 63.0
+margin_bottom = 48.0
+text = "Options"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 52.0
+margin_right = 63.0
+margin_bottom = 74.0
+focus_neighbour_bottom = NodePath("../Start")
+text = "Quit"
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
