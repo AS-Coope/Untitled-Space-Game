@@ -15,12 +15,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Random Game ( In Godot)"
-run/main_scene="res://MainMenu.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-SShipBullet="*res://SShipBullet.gd"
+SShipBullet="*res://Scripts/SShipBullet.gd"
 
 [display]
 
